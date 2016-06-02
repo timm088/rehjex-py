@@ -3,7 +3,6 @@
 # 2. then, copy the found occurrence from en.html to the location in de.html
 
 import re
-import sys
 
 with open('filea.html') as originalFile:
     originalFileContents = originalFile.read()
@@ -25,8 +24,9 @@ with open('fileb.html') as targetFile:
     targetFileContents = targetFile.read()
 
 changedTargetFileContents = pattern.sub(replaceId, targetFileContents)
-print changedTargetFileContents
 
 new_file = open("Output.html", "w")
 new_file.write(changedTargetFileContents)
 new_file.close()
+
+print 'replace complete'
