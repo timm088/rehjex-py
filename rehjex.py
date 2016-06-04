@@ -7,7 +7,7 @@ import re
 with open('filea.html') as originalFile:
     originalFileContents = originalFile.read()
 
-pattern = re.compile(r'(................................)_se')
+pattern = re.compile(r'[0-9a-f]{32}_se')
 originalMatches = pattern.findall(originalFileContents)
 
 counter = 0
@@ -15,7 +15,7 @@ counter = 0
 def replaceId(match):
     global counter
     value = match.group()
-    newValue = originalMatches[counter] + '_se'
+    newValue = originalMatches[counter]
     print counter, '=> replacing', value, 'with', newValue
     counter = counter + 1
     return newValue
